@@ -1,0 +1,150 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Marathi",
+  "scopeName": "source.marathi",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#identifiers"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.marathi",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.marathi",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.marathi",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.marathi",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.marathi",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.marathi",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.marathi",
+          "match": "\\b[०-९]+(\\.[०-९]+)?\\b"
+        },
+        {
+          "name": "constant.numeric.marathi",
+          "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.marathi",
+          "match": "\\b(जर|नाहीतर|जोपर्यंत|प्रत्येक|मध्ये|परत)\\b"
+        },
+        {
+          "name": "keyword.declaration.marathi",
+          "match": "\\b(चल|स्थिर|कार्य)\\b"
+        },
+        {
+          "name": "keyword.operator.logical.marathi",
+          "match": "\\b(आणि|किंवा|नाही)\\b"
+        },
+        {
+          "name": "constant.language.boolean.marathi",
+          "match": "\\b(सत्य|असत्य)\\b"
+        },
+        {
+          "name": "constant.language.null.marathi",
+          "match": "\\b(शून्य)\\b"
+        },
+        {
+          "name": "support.function.builtin.marathi",
+          "match": "\\b(मुद्रण|प्रकार|लांबी|संख्या|सुशोभित)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arithmetic.marathi",
+          "match": "[\\+\\-\\*\\/%]"
+        },
+        {
+          "name": "keyword.operator.comparison.marathi",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.assignment.marathi",
+          "match": "="
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.marathi",
+          "match": "\\b([अ-ह्][अ-ह्ा-ृॆ-ौं-्०-९]*|[a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*\\()",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.marathi"
+            }
+          }
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.marathi",
+          "match": "\\b[अ-ह्][अ-ह्ा-ृॆ-ौं-्०-९]*\\b"
+        },
+        {
+          "name": "variable.other.marathi",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    }
+  }
+}

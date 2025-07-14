@@ -1,0 +1,111 @@
+{
+  "name": "marathi-language-support",
+  "displayName": "Marathi Language Support",
+  "description": "Support for Marathi programming language (मराठी भाषा)",
+  "version": "1.0.0",
+  "publisher": "marathi-lang",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "marathi",
+    "मराठी",
+    "indian",
+    "programming",
+    "language"
+  ],
+  "activationEvents": [
+    "onLanguage:marathi"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "marathi",
+        "aliases": [
+          "Marathi",
+          "मराठी"
+        ],
+        "extensions": [
+          ".mr"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "marathi",
+        "scopeName": "source.marathi",
+        "path": "./syntaxes/marathi.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "marathi.run",
+        "title": "Run Marathi Code",
+        "category": "Marathi"
+      },
+      {
+        "command": "marathi.compile",
+        "title": "Compile Marathi Code",
+        "category": "Marathi"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "marathi.run",
+        "key": "F5",
+        "when": "editorLangId == marathi"
+      },
+      {
+        "command": "marathi.run",
+        "key": "ctrl+r",
+        "when": "editorLangId == marathi"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "marathi.run",
+          "when": "editorLangId == marathi",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "marathi.run",
+          "when": "editorLangId == marathi",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Marathi Language",
+      "properties": {
+        "marathi.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to Python executable"
+        },
+        "marathi.interpreterPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to Marathi interpreter (run_marathi.py)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "^14.x",
+    "typescript": "^4.4.4"
+  }
+}
